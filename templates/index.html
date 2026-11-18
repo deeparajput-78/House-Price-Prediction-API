@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,20 +6,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>House Price Prediction</title>
+    <title>EstatePredict | AI House Price Prediction</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', path='/style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
 </head>
 
 <body>
 
-<div class="container">
+<!-- ================= HEADER ================= -->
+
+<header class="site-header">
+
+    <div class="logo">
+        🏡 Estate<span>Predict</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#predict">Predict Price</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <a href="#predict" class="nav-btn">Get Started</a>
+
+</header>
+
+
+<!-- ================= HERO SECTION ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <span class="tag">SMART REAL ESTATE SOLUTION</span>
+
+        <h1>
+            Find Your Dream Home
+            With <span>AI Prediction</span>
+        </h1>
+
+        <p>
+            Discover estimated property prices with the power
+            of Machine Learning. Make smarter property decisions
+            with our intelligent house price prediction system.
+        </p>
+
+        <a href="#predict" class="hero-btn">
+            Predict Your House Price →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PREDICTION FORM ================= -->
+
+<div class="container" id="predict">
 
     <div class="header">
-        <h1>House Price Prediction</h1>
-        <p>Machine Learning powered housing price estimator</p>
+
+        <span class="form-tag">AI POWERED ESTIMATOR</span>
+
+        <h1>House Price Predictor</h1>
+
+        <p>
+            Enter your property details to get an estimated house price.
+        </p>
+
     </div>
+
 
     <form action="/predict" method="POST">
 
@@ -28,39 +92,42 @@
 
             <div>
                 <label>Area (sq. ft.)</label>
-                <input type="number" name="area" min="1" required>
+                <input type="number" name="area" min="1" placeholder="Enter area" required>
             </div>
 
             <div>
                 <label>Bedrooms</label>
-                <input type="number" name="bedrooms" min="1" required>
+                <input type="number" name="bedrooms" min="1" placeholder="Number of bedrooms" required>
             </div>
 
             <div>
                 <label>Bathrooms</label>
-                <input type="number" name="bathrooms" min="1" required>
+                <input type="number" name="bathrooms" min="1" placeholder="Number of bathrooms" required>
             </div>
 
             <div>
                 <label>Stories</label>
-                <input type="number" name="stories" min="1" required>
+                <input type="number" name="stories" min="1" placeholder="Number of stories" required>
             </div>
 
             <div>
                 <label>Parking</label>
-                <input type="number" name="parking" min="0" required>
+                <input type="number" name="parking" min="0" placeholder="Parking spaces" required>
             </div>
 
             <div>
                 <label>Furnishing Status</label>
+
                 <select name="furnishingstatus" required>
                     <option value="furnished">Furnished</option>
                     <option value="semi-furnished">Semi-Furnished</option>
                     <option value="unfurnished">Unfurnished</option>
                 </select>
+
             </div>
 
         </div>
+
 
         <h3>Property Features</h3>
 
@@ -116,27 +183,92 @@
 
         </div>
 
+
         <button type="submit">
-            Predict House Price
+            ✨ Predict House Price
         </button>
 
     </form>
 
+
+    <!-- ================= PREDICTION RESULT ================= -->
+
     {% if prediction is not none %}
+
     <div class="result">
-        <h2>Predicted House Price</h2>
+
+        <h2>🏡 Predicted House Price</h2>
+
         <p>{{ "{:,.2f}".format(prediction) }}</p>
-        <small>Dataset price units</small>
+
+        <small>Estimated price in dataset currency units</small>
+
     </div>
+
     {% endif %}
 
+
+    <!-- ================= ERROR MESSAGE ================= -->
+
     {% if error %}
+
     <div class="error">
         {{ error }}
     </div>
+
     {% endif %}
 
 </div>
+
+
+<!-- ================= ABOUT SECTION ================= -->
+
+<section class="about-section" id="about">
+
+    <div class="about-content">
+
+        <span class="tag">ABOUT OUR PROJECT</span>
+
+        <h2>Smart Property Valuation Using Machine Learning</h2>
+
+        <p>
+            EstatePredict is a Machine Learning based house price
+            prediction application developed using Python and FastAPI.
+
+            It analyzes different property features and estimates
+            house prices using a trained regression model.
+        </p>
+
+        <div class="tech-tags">
+            <span>Python</span>
+            <span>FastAPI</span>
+            <span>Machine Learning</span>
+            <span>Scikit-learn</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="site-footer">
+
+    <h2>🏡 EstatePredict</h2>
+
+    <p>
+        Making smarter property decisions with
+        Machine Learning and Technology.
+    </p>
+
+    <div class="footer-line"></div>
+
+    <p class="copyright">
+        © 2026 EstatePredict. Built with Python, FastAPI & Machine Learning.
+    </p>
+
+</footer>
 
 </body>
 </html>
