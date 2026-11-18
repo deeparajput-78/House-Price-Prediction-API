@@ -12,6 +12,7 @@ The project predicts house prices based on different property features such as a
 
 It uses a real-world housing dataset from Kaggle to train a Machine Learning regression model and provides predictions through REST API endpoints.
 
+
 ✨ Features
 
 Predict house prices based on property details.
@@ -27,6 +28,7 @@ Interactive API documentation using Swagger UI.
 Input validation using Pydantic.
 
 Easy-to-use API endpoints.
+
 
 🛠️ Technologies Used
 
@@ -66,6 +68,7 @@ HTML & CSS
 
 Frontend (if implemented)
 
+
 📊 Dataset Information
 
 Dataset: Housing Prices Dataset
@@ -78,33 +81,6 @@ Dataset contains:
 
 13 columns
 
-Important Features
-
-Area
-
-Bedrooms
-
-Bathrooms
-
-Stories
-
-Parking
-
-Main Road
-
-Guest Room
-
-Basement
-
-Hot Water Heating
-
-Air Conditioning
-
-Preferred Area
-
-Furnishing Status
-
-Target Variable: House Price
 
 📁 Project Structure
 
